@@ -1,7 +1,8 @@
 # robot-perception-pipeline
 This project implements a perception-to-action pipeline for humanoid robotics, integrating RGB-D vision, object detection, environmental memory, cognitive reasoning, and action execution. The system is designed to simulate how a robot can see, understand, decide, and act in real-world environments.
 
-<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/ecd54235-d192-4b08-9c98-49c92e27a36a" />
+<img width="535" height="819" alt="image" src="https://github.com/user-attachments/assets/9f12cd95-8c59-4501-99a3-ec0db65d32b9" />
+
 
 # Vision Module – Perception and Temporal Stability
 
