@@ -1,14 +1,15 @@
 # robot-perception-pipeline
 This project implements a perception-to-action pipeline for humanoid robotics, integrating RGB-D vision, object detection, environmental memory, cognitive reasoning, and action execution. The system is designed to simulate how a robot can see, understand, decide, and act in real-world environments.
-RGB-D Camera / Dataset
+
+# RGB-D Camera / Dataset
         ↓
-Vision Module (Perception)
+# Vision Module (Perception)
         ↓
-World Model (Memory)
+# World Model (Memory)
         ↓
-Brain (Decision Logic)
+# Brain (Decision Logic)
         ↓
-Action Interface (Execution)
+# Action Interface (Execution)
 
 # Vision Module – Perception and Temporal Stability
 
