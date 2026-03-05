@@ -1,2 +1,90 @@
 # robot-perception-pipeline
-Perception-to-action pipeline for humanoid robots using RGB-D vision, YOLO object detection, world modeling, and decision intelligence.
+This project implements a perception-to-action pipeline for humanoid robotics, integrating RGB-D vision, object detection, environmental memory, cognitive reasoning, and action execution. The system is designed to simulate how a robot can see, understand, decide, and act in real-world environments.
+RGB-D Camera / Dataset
+        ↓
+Vision Module (Perception)
+        ↓
+World Model (Memory)
+        ↓
+Brain (Decision Logic)
+        ↓
+Action Interface (Execution)
+
+# Vision Module – Perception and Temporal Stability
+
+The Vision module performs real-time RGB-D perception using an Intel RealSense camera or RGB-D dataset. Object detection is performed using YOLO, while depth information is extracted to estimate the object's 3D spatial position.
+
+To improve reliability, the system implements multi-frame confirmation and depth stability checks. An object must remain stable across several frames before being considered valid. This prevents the robot from reacting to flickering detections caused by reflections, occlusions, or sensor noise.
+
+For example, if a bottle appears in one frame but disappears in the next, the system will not attempt to pick it. This makes perception more cautious and human-like rather than reactive.
+
+Future improvements includes:
+
+Object tracking (DeepSORT / ByteTrack)
+
+Segmentation-based grasp region detection
+
+Point-cloud based 3D localization
+
+# World Model – Memory and Uncertainty Management
+
+The World Model functions as the robot's short-term memory system. It stores detected objects along with their:
+
+3D position
+detection confidence
+timestamp
+
+Instead of immediately removing objects when they disappear, the system applies confidence decay over time. This models uncertainty similar to human perception. For example, if an object becomes temporarily occluded, the robot still remembers its presence for a short time. However, if it remains unseen for several seconds, confidence gradually decreases and the object may be removed from memory.
+
+Future improvements includes:
+
+Bayesian belief updates
+spatial probability maps
+object trajectory tracking
+
+# Brain Module – Cognitive Reasoning and Decision Making
+
+The Brain module performs task-level reasoning using a structured state machine. It manages states such as:
+
+SEARCHING
+GRASPING
+Before issuing a pick command, the system verifies several conditions:
+detection confidence threshold
+multi-frame stability confirmation
+reachability within the robot's physical limits
+Target locking ensures that once an object is selected for grasping, the robot maintains focus instead of switching targets due to new detections.
+Failure recovery logic allows the system to retry a grasp attempt. After exceeding a retry threshold, the robot re-evaluates the environment.
+
+Possible future enhancements include:
+task prioritization
+shortest path optimization
+probabilistic planning
+reinforcement learning for exploration
+
+# Action Interface – Execution and Feedback Loop
+
+The Action Interface connects the cognitive layer to robotic hardware. Instead of directly controlling motors, it sends structured commands to the robot controller and receives feedback about action outcomes.
+This feedback loop enables adaptive behavior. If a grasp attempt fails, the Brain is informed and can retry or re-plan the task. Continuous perception during manipulation ensures that the robot does not act blindly but instead observes and reacts throughout execution.
+
+In real deployment, this module can integrate with:
+
+ROS topics
+robotic control APIs
+hardware motion controllers
+Future improvements may include:
+force sensor feedback
+collision monitoring
+trajectory refinement
+
+# System Characteristics
+
+The system combines deterministic safety with adaptive reasoning.
+
+Key properties include:
+
+multi-frame perception validation
+uncertainty-aware memory
+structured decision logic
+failure recovery mechanisms
+continuous monitoring
+
