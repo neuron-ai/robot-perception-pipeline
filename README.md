@@ -66,14 +66,4 @@ force sensor feedback
 collision monitoring
 trajectory refinement
 
-# System Characteristics
-
-The system combines deterministic safety with adaptive reasoning.
-Key properties include:
-
-multi-frame perception validation
-uncertainty-aware memory
-structured decision logic
-failure recovery mechanisms
-continuous monitoring
 
