@@ -12,9 +12,7 @@ To improve reliability, the system implements multi-frame confirmation and depth
 
 Future improvements includes:
 
-Object tracking (DeepSORT / ByteTrack)
-Segmentation-based grasp region detection
-Point-cloud based 3D localization
+Object tracking (DeepSORT / ByteTrack), Segmentation-based grasp region detection, Point-cloud based 3D localization
 
 # World Model – Memory and Uncertainty Management
 
@@ -28,42 +26,33 @@ Instead of immediately removing objects when they disappear, the system applies 
 
 Future improvements includes:
 
-Bayesian belief updates
-spatial probability maps
-object trajectory tracking
+Bayesian belief updates, spatial probability maps, object trajectory tracking
 
 # Brain Module – Cognitive Reasoning and Decision Making
 
 The Brain module performs task-level reasoning using a structured state machine. It manages states such as:
 
-SEARCHING
-GRASPING
+SEARCHING, GRASPING
+
 Before issuing a pick command, the system verifies several conditions:
-detection confidence threshold
-multi-frame stability confirmation
-reachability within the robot's physical limits
-Target locking ensures that once an object is selected for grasping, the robot maintains focus instead of switching targets due to new detections.
-Failure recovery logic allows the system to retry a grasp attempt. After exceeding a retry threshold, the robot re-evaluates the environment.
+detection confidence threshold, multi-frame stability confirmation, reachability within the robot's physical limits
+Target locking ensures that once an object is selected for grasping, the robot maintains focus instead of switching targets due to new detections. Failure recovery logic allows the system to retry a grasp attempt. After exceeding a retry threshold, the robot re-evaluates the environment.
 
 Possible future enhancements include:
-task prioritization
-shortest path optimization
-probabilistic planning
-reinforcement learning for exploration
+task prioritization, shortest path optimization, probabilistic planning, reinforcement learning for exploration
 
 # Action Interface – Execution and Feedback Loop
 
-The Action Interface connects the cognitive layer to robotic hardware. Instead of directly controlling motors, it sends structured commands to the robot controller and receives feedback about action outcomes.
-This feedback loop enables adaptive behavior. If a grasp attempt fails, the Brain is informed and can retry or re-plan the task. Continuous perception during manipulation ensures that the robot does not act blindly but instead observes and reacts throughout execution.
+The Action Interface connects the cognitive layer to robotic hardware. Instead of directly controlling motors, it sends structured commands to the robot controller and receives feedback about action outcomes. This feedback loop enables adaptive behavior. If a grasp attempt fails, the Brain is informed and can retry or re-plan the task. Continuous perception during manipulation ensures that the robot does not act blindly but instead observes and reacts throughout execution.
 
 In real deployment, this module can integrate with:
 
-ROS topics
-robotic control APIs
-hardware motion controllers
-Future improvements may include:
-force sensor feedback
-collision monitoring
-trajectory refinement
+1)ROS topics
+2)robotic control APIs
+3)hardware motion controllers
+4)Future improvements may include:
+5)force sensor feedback
+6)collision monitoring
+7)trajectory refinement
 
 
