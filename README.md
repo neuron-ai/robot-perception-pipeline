@@ -6,16 +6,11 @@ This project implements a perception-to-action pipeline for humanoid robotics, i
 This project uses the TUM RGB-D Dataset for simulation.
 
 Download:
-https://vision.in.tum.de/data/datasets/rgbd-dataset
+https://cvg.cit.tum.de/data/datasets/rgbd-dataset/download
 
-After downloading, extract it and place the folder like this:
+From the available sequences, download:
 
-project/
-│
-├── rgbd_dataset_freiburg1_xyz/
-│   ├── rgb/
-│   └── depth/
-
+rgbd_dataset_freiburg1_xyz
 
 <img width="535" height="819" alt="image" src="https://github.com/user-attachments/assets/9f12cd95-8c59-4501-99a3-ec0db65d32b9" />
 
