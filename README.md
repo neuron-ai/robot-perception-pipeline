@@ -8,16 +8,12 @@ This project implements a perception-to-action pipeline for humanoid robotics, i
 
 The Vision module performs real-time RGB-D perception using an Intel RealSense camera or RGB-D dataset. Object detection is performed using YOLO, while depth information is extracted to estimate the object's 3D spatial position.
 
-To improve reliability, the system implements multi-frame confirmation and depth stability checks. An object must remain stable across several frames before being considered valid. This prevents the robot from reacting to flickering detections caused by reflections, occlusions, or sensor noise.
-
-For example, if a bottle appears in one frame but disappears in the next, the system will not attempt to pick it. This makes perception more cautious and human-like rather than reactive.
+To improve reliability, the system implements multi-frame confirmation and depth stability checks. An object must remain stable across several frames before being considered valid. This prevents the robot from reacting to flickering detections caused by reflections, occlusions, or sensor noise. For example, if a bottle appears in one frame but disappears in the next, the system will not attempt to pick it. This makes perception more cautious and human-like rather than reactive.
 
 Future improvements includes:
 
 Object tracking (DeepSORT / ByteTrack)
-
 Segmentation-based grasp region detection
-
 Point-cloud based 3D localization
 
 # World Model – Memory and Uncertainty Management
@@ -73,7 +69,6 @@ trajectory refinement
 # System Characteristics
 
 The system combines deterministic safety with adaptive reasoning.
-
 Key properties include:
 
 multi-frame perception validation
